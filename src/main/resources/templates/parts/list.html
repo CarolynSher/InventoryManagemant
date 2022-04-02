@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Part Table</title>
+</head>
+<body>
+<h1>Part List</h1>
+
+<table>
+  <tr>
+    <th>ID</th>
+    <th>NAME</th>
+    <th>PRICE</th>
+      <th>INV</th>
+      <th>MAX</th>
+      <th>MIN</th>
+  </tr>
+    <tr th:each="part :${parts}">
+        <td th:text="${part.id}">1</td>
+        <td th:text="${part.name}">1</td>
+        <td th:text="${part.price}">1</td>
+        <td th:text="${part.inv}">1</td>
+        <td th:text="${part.max}">1</td>
+        <td th:text="${part.min}">1</td>
+    </tr>
+</table>
+</body>
+</html>

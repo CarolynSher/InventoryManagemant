@@ -24,6 +24,7 @@ public class Products implements Serializable {
     long id;
     String name;
     double price;
+    int inv;
     int min;
     int max;
 
@@ -40,10 +41,11 @@ public class Products implements Serializable {
     public Products() {
     }
 
-    public Products( String name, double price, int min, int max) {
+    public Products( String name, double price, int inv,int min, int max) {
 
         this.name = name;
         this.price = price;
+        this.inv=inv;
         this.min = min;
         this.max = max;
     }
@@ -86,6 +88,14 @@ public class Products implements Serializable {
 
     public void setMax(int max) {
         this.max = max;
+    }
+
+    public int getInv() {
+        return inv;
+    }
+
+    public void setInv(int inv) {
+        this.inv = inv;
     }
 
     public List<Parts> getAssociatedParts() {

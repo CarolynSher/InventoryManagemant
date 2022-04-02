@@ -31,9 +31,9 @@ public class BootStrapData implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        Products bicycle= new Products("bicycle",100.0,10,100);
-        Parts wheel=new Parts("wheel", 10,50,1000);
-        Parts pedal=new Parts("pedal", 10,50,1000);
+        Products bicycle= new Products("bicycle",100.0,15,10,100);
+        Parts wheel=new Parts("wheel", 10,30,50,1000);
+        Parts pedal=new Parts("pedal", 10,30,50,1000);
         bicycle.getAssociatedParts().add(wheel);
         bicycle.getAssociatedParts().add(pedal);
         wheel.getProducts().add(bicycle);
