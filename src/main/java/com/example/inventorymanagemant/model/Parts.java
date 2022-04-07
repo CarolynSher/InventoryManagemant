@@ -3,7 +3,9 @@ package com.example.inventorymanagemant.model;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 /**
  * Project: InventoryManagemant
@@ -29,7 +31,7 @@ public class Parts implements Serializable {
     int max;
 
     @ManyToMany(mappedBy = "associatedParts")
-    List<Products> products=new ArrayList<>();
+    Set<Products> products=new HashSet<>();
 
     public Parts() {
     }
@@ -91,11 +93,11 @@ public class Parts implements Serializable {
         this.inv = inv;
     }
 
-    public List<Products> getProducts() {
+    public Set<Products> getProducts() {
         return products;
     }
 
-    public void setProducts(List<Products> products) {
+    public void setProducts(Set<Products> products) {
         this.products = products;
     }
 

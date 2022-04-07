@@ -3,8 +3,10 @@ package com.example.inventorymanagemant.model;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
-
+import java.util.Set;
+import com.example.inventorymanagemant.model.Parts;
 /**
  * Project: InventoryManagemant
  * Package: model
@@ -17,7 +19,7 @@ import java.util.List;
  * To change this template use File | Settings | File Templates.
  */
 @Entity
-@Table(name="products")
+@Table(name="Products")
 public class Products implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -29,13 +31,9 @@ public class Products implements Serializable {
     int max;
 
     @ManyToMany
-    @JoinTable(name="product_part", joinColumns =@JoinColumn(name="product_id"),
-            inverseJoinColumns = @JoinColumn(name="part_id"))
-    List<Parts> associatedParts;
-
-    {
-        associatedParts = new ArrayList<>();
-    }
+    @JoinTable(name="product_part", joinColumns ={@JoinColumn(name="product_id")},
+            inverseJoinColumns = {@JoinColumn(name="part_id")})
+    Set<Parts> associatedParts= new HashSet<>();
 
 
     public Products() {
@@ -98,11 +96,11 @@ public class Products implements Serializable {
         this.inv = inv;
     }
 
-    public List<Parts> getAssociatedParts() {
+    public Set<Parts> getAssociatedParts() {
         return associatedParts;
     }
 
-    public void setAssociatedParts(List<Parts> associatedParts) {
+    public void setAssociatedParts(Set<Parts> associatedParts) {
         this.associatedParts = associatedParts;
     }
 

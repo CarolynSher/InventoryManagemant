@@ -32,6 +32,7 @@ public class BootStrapData implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
         Products bicycle= new Products("bicycle",100.0,15,10,100);
+        Products unicycle= new Products("unicycle",100.0,15,10,100);
         Parts wheel=new Parts("wheel", 10,30,50,1000);
         Parts pedal=new Parts("pedal", 10,30,50,1000);
         bicycle.getAssociatedParts().add(wheel);
@@ -41,6 +42,7 @@ public class BootStrapData implements CommandLineRunner {
         partRepository.save(wheel);
         partRepository.save(pedal);
         productRepository.save(bicycle);
+        productRepository.save(unicycle);
 
         System.out.println("Started in Bootstrap");
         System.out.println("Number of Products"+productRepository.count());
