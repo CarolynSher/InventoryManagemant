@@ -1,6 +1,10 @@
 package com.example.inventorymanagemant.controllers;
 
+import com.example.inventorymanagemant.bootstrap.BootStrapData;
 import com.example.inventorymanagemant.model.Parts;
+import com.example.inventorymanagemant.repositories.PartRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -21,6 +25,9 @@ import org.springframework.ui.Model;
  */
 @Controller
 public class PartDetailController {
+
+    @Autowired
+    private ApplicationContext context;
     @GetMapping("/partdetail")
     public String showForm(Model model){
         model.addAttribute("parts", new Parts());
@@ -30,6 +37,8 @@ public class PartDetailController {
     @PostMapping("/partdetail")
     public String submitForm(@ModelAttribute Parts parts, Model model){
         model.addAttribute("parts",parts);
+        PartRepository repo=context.getBean(PartRepository.class);
+        repo.save(parts);
         return "parts/list";
     }
 }

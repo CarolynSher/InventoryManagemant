@@ -29,6 +29,14 @@ public class BootStrapData implements CommandLineRunner {
         this.productRepository = productRepository;
     }
 
+    public PartRepository getPartRepository() {
+        return partRepository;
+    }
+
+    public ProductRepository getProductRepository() {
+        return productRepository;
+    }
+
     @Override
     public void run(String... args) throws Exception {
         Products bicycle= new Products("bicycle",100.0,15,10,100);
