@@ -22,14 +22,14 @@ import org.springframework.ui.Model;
 @Controller
 public class PartDetailController {
     @GetMapping("/partdetail")
-    public String detailForm(Model model){
+    public String showForm(Model model){
         model.addAttribute("parts", new Parts());
         return "parts/form1";
     }
 
     @PostMapping("/partdetail")
-    public String detailSubmit(@ModelAttribute Parts parts, Model model){
+    public String submitForm(@ModelAttribute Parts parts, Model model){
         model.addAttribute("parts",parts);
-        return "parts/form1";
+        return "parts/list";
     }
 }
