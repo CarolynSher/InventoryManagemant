@@ -24,12 +24,12 @@ public class PartDetailController {
     @GetMapping("/partdetail")
     public String detailForm(Model model){
         model.addAttribute("parts", new Parts());
-        return "parts";
+        return "parts/form1";
     }
 
     @PostMapping("/partdetail")
     public String detailSubmit(@ModelAttribute Parts parts, Model model){
         model.addAttribute("parts",parts);
-        return "result";
+        return "parts/form1";
     }
 }

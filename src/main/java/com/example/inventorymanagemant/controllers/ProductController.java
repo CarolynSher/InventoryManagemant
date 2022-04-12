@@ -28,6 +28,6 @@ public class ProductController {
     @RequestMapping("/products")
     public String getProducts(Model model){
         model.addAttribute("products",productRepository.findAll());
-        return "products/list2";
+        return "parts/list4";
     }
     }

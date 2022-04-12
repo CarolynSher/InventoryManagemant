@@ -30,8 +30,8 @@ public class Parts implements Serializable {
     int min;
     int max;
 
-    @ManyToMany(mappedBy = "associatedParts")
-    Set<Products> products=new HashSet<>();
+    @ManyToOne
+    Products product;
 
     public Parts() {
     }
@@ -93,12 +93,12 @@ public class Parts implements Serializable {
         this.inv = inv;
     }
 
-    public Set<Products> getProducts() {
-        return products;
+    public Products getProduct() {
+        return product;
     }
 
-    public void setProducts(Set<Products> products) {
-        this.products = products;
+    public void setProduct(Products product) {
+        this.product = product;
     }
 
     @Override

@@ -30,10 +30,8 @@ public class Products implements Serializable {
     int min;
     int max;
 
-    @ManyToMany
-    @JoinTable(name="product_part", joinColumns ={@JoinColumn(name="product_id")},
-            inverseJoinColumns = {@JoinColumn(name="part_id")})
-    Set<Parts> associatedParts= new HashSet<>();
+    @OneToMany(cascade=CascadeType.ALL, mappedBy = "product")
+    Set<Parts> parts=new HashSet<>();
 
 
     public Products() {
@@ -96,12 +94,12 @@ public class Products implements Serializable {
         this.inv = inv;
     }
 
-    public Set<Parts> getAssociatedParts() {
-        return associatedParts;
+    public Set<Parts> getParts() {
+        return parts;
     }
 
-    public void setAssociatedParts(Set<Parts> associatedParts) {
-        this.associatedParts = associatedParts;
+    public void setParts(Set<Parts> parts) {
+        this.parts = parts;
     }
 
     @Override

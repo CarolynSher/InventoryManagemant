@@ -35,14 +35,15 @@ public class BootStrapData implements CommandLineRunner {
         Products unicycle= new Products("unicycle",100.0,15,10,100);
         Parts wheel=new Parts("wheel", 10,30,50,1000);
         Parts pedal=new Parts("pedal", 10,30,50,1000);
-        bicycle.getAssociatedParts().add(wheel);
-        bicycle.getAssociatedParts().add(pedal);
-        wheel.getProducts().add(bicycle);
-        pedal.getProducts().add(bicycle);
-        partRepository.save(wheel);
-        partRepository.save(pedal);
+        bicycle.getParts().add(wheel);
+        bicycle.getParts().add(pedal);
+        wheel.setProduct(bicycle);
+        pedal.setProduct(bicycle);
         productRepository.save(bicycle);
         productRepository.save(unicycle);
+        partRepository.save(wheel);
+        partRepository.save(pedal);
+
 
         System.out.println("Started in Bootstrap");
         System.out.println("Number of Products"+productRepository.count());
