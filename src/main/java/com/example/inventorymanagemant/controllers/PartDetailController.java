@@ -39,6 +39,6 @@ public class PartDetailController {
         model.addAttribute("parts",parts);
         PartRepository repo=context.getBean(PartRepository.class);
         repo.save(parts);
-        return "parts/list";
+        return "parts/confirmationaddpart";
     }
 }
