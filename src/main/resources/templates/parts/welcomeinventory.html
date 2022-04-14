@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Welcome Inventory</title>
+</head>
+<body>
+<h1>Welcome to My Bicycle Shop!</h1>
+<h2>Part List</h2>
+
+<table>
+  <tr>
+    <th>ID</th>
+    <th>NAME</th>
+    <th>PRICE</th>
+    <th>INV</th>
+    <th>MAX</th>
+    <th>MIN</th>
+  </tr>
+  <tr th:each="part :${parts}">
+    <td th:text="${part.id}">1</td>
+    <td th:text="${part.name}">1</td>
+    <td th:text="${part.price}">1</td>
+    <td th:text="${part.inv}">1</td>
+    <td th:text="${part.max}">1</td>
+    <td th:text="${part.min}">1</td>
+  </tr>
+</table>
+
+<a href="http://localhost:8080/partdetail"> Add Part</a>
+
+<h2>Product List</h2>
+
+<table>
+  <tr>
+    <th>ID</th>
+    <th>NAME</th>
+    <th>PRICE</th>
+    <th>INV</th>
+    <th>MAX</th>
+    <th>MIN</th>
+  </tr>
+  <tr th:each="prod : ${products}">
+    <td th:text="${prod.id}">Product ID</td>
+    <td th:text="${prod.name}">Name</td>
+    <td th:text="${prod.price}">1</td>
+    <td th:text="${prod.inv}">1</td>
+    <td th:text="${prod.max}">1</td>
+    <td th:text="${prod.min}">1</td>
+  </tr>
+</table>
+
+<a href="http://localhost:8080/productdetail"> Add Product</a>
+</body>
+</html>

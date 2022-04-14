@@ -18,7 +18,7 @@ import org.springframework.web.servlet.ModelAndView;
  * Created with IntelliJ IDEA
  * To change this template use File | Settings | File Templates.
  */
-@Controller
+/*@Controller
 public class MainMenuController {
 
 
@@ -29,3 +29,4 @@ public class MainMenuController {
         return modelAndView;
     }
 }
+*/
