@@ -26,8 +26,11 @@
     <td th:text="${part.min}">1</td>
   </tr>
 </table>
-
+<p><input type="submit" value="Insert"></p>
+<p><label>Update Part by ID:</label><input type="number" value="updatepart" /><input type="submit" value="Update"></p>
+<p><label>Delete Part by ID:</label><input type="number" value="deletepart" /><input type="submit" value="Delete"></p>
 <a href="http://localhost:8080/partdetail"> Add Part</a>
+
 
 <h2>Product List</h2>
 
@@ -49,7 +52,9 @@
     <td th:text="${prod.min}">1</td>
   </tr>
 </table>
-
+<p><input type="submit" value="Insert"></p>
+<p><label>Update Product by ID:</label><input type="number" value="updateproduct" /><input type="submit" value="Update"></p>
+<p><label>Delete Product by ID:</label><input type="number" value="deleteproduct" /><input type="submit" value="Delete"></p>
 <a href="http://localhost:8080/productdetail"> Add Product</a>
 </body>
 </html>
