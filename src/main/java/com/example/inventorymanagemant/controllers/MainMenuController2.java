@@ -46,4 +46,13 @@ public class MainMenuController2 {
        partRepository.deleteById(partID);
         return "parts/confirmdelete";
     }
+
+    @GetMapping("/send2")
+    public String send2(@RequestParam(name="doc2", required = false) String doc2) {
+        //change required = false as per requirement
+        System.out.println("Doc2: "+doc2);
+        Long productID=Long.parseLong(doc2);
+        productRepository.deleteById(productID);
+        return "parts/confirmdelete2";
+    }
 }

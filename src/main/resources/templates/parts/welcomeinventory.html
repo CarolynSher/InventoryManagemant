@@ -57,7 +57,10 @@
 </table>
 <form action="http://localhost:8080/productdetail"><input type="submit" value="Insert New Product"></form>
 <p><label>Update Product by ID:</label><input type="number" value="updateproduct" /><input type="submit" value="Update"></p>
-<p><label>Delete Product by ID:</label><input type="number" value="deleteproduct" /><input type="submit" value="Delete"></p>
+<form th:action="@{/send2}" method="get">
+  <label>Delete product by ID:</label><input  th:name="doc2" name="doc2"></input>
+  <button type="submit">Delete</button>
+</form>
 <!--<a href="http://localhost:8080/productdetail"> Add Product</a>-->
 </body>
 </html>
