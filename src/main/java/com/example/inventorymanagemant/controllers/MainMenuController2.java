@@ -1,10 +1,15 @@
 package com.example.inventorymanagemant.controllers;
 
+import com.example.inventorymanagemant.model.Parts;
+import com.example.inventorymanagemant.model.MyID;
 import com.example.inventorymanagemant.repositories.PartRepository;
 import com.example.inventorymanagemant.repositories.ProductRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+import java.util.Optional;
 
 /**
  * Project: InventoryManagemant
@@ -33,5 +38,12 @@ public class MainMenuController2 {
         model.addAttribute("products",productRepository.findAll());
         return "parts/welcomeinventory";
     }
-
+    @GetMapping("/send")
+    public String send(@RequestParam(name="doc", required = false) String doc) {
+        //change required = false as per requirement
+        System.out.println("Doc: "+doc);
+        Long partID=Long.parseLong(doc);
+       partRepository.deleteById(partID);
+        return "parts/confirmdelete";
+    }
 }
